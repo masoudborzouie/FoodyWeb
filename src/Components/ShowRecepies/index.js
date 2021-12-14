@@ -1,21 +1,23 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Recepie from "./Recepie";
 
 function IndexRec() {
-  let recepies = [];
-  fetch("https://fakestoreapi.com/products?limit=5")
-    .then((res) => {
-      res.json();
-    })
-    .then((data) => {
-      recepies = data;
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const [recepies, setRecepies] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products?limit=5")
+      .then((res) => res.json())
+      .then((data) => {
+        setRecepies(data);
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
-    <div>
+    <div className="row mt-5 ">
       {recepies.length ? (
         recepies.map((item) => (
           <Recepie

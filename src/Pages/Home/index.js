@@ -3,7 +3,7 @@ import Recepies from "../../Components/ShowRecepies";
 
 export default function Home() {
   return (
-    <div>
+    <div className="row">
       <Recepies />
     </div>
   );

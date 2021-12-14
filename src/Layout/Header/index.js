@@ -69,9 +69,9 @@ export default function Header() {
                 Login
               </Link>
             </li>
-            <li>
-              <Link className="dropdown-item" to="/sign-out">
-                Sign out
+            <li className="nav-item ">
+              <Link className="dropdown-item " to="/sign-up">
+                Sign Up
               </Link>
             </li>
           </ul>
