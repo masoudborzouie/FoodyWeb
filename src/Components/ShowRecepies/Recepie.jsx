@@ -1,24 +1,26 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
-export default function Recepie({ title, description, image, price }) {
+export default function Recepie({ title, summary, image, price }) {
   return (
-    <div className="container row col w-50 p-3 justify-content-center">
-      <Card style={{ width: "18rem" }}>
+    <div className="container ms-2 d-flex col p-3 justify-content-center">
+      <Card style={{ width: "20rem" }}>
         <Card.Img
           variant="top"
           src={image}
           className=" p-3 img-fluid w-auto"
-          style={{ height: "19rem" }}
+          style={{ height: "17rem" }}
         />
         <Card.Body>
           <Card.Title className="cardTitle h-25">{`${title.substring(
             0,
             35
           )}...`}</Card.Title>
-          <Card.Text> {`${description.substring(0, 50)}...`}</Card.Text>
+          <Card.Text> {`${summary.substring(0, 50)}...`}</Card.Text>
           <Card.Text>{price}</Card.Text>
-          <Button variant="primary">to Shop</Button>
+          <Button variant="primary" className=" m-2">
+            Get Reciepes
+          </Button>
         </Card.Body>
       </Card>
     </div>

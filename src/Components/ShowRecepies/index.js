@@ -5,11 +5,13 @@ function IndexRec() {
   const [recepies, setRecepies] = useState([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=5")
+    fetch(
+      "https://api.spoonacular.com/recipes/random?number=8&tags=vegetarian,dessert&apiKey=9f113b083e584777b7d9d00820ef41a4"
+    )
       .then((res) => res.json())
       .then((data) => {
-        setRecepies(data);
-        console.log(data);
+        setRecepies(data.recipes);
+        console.log(data.recipes);
       })
       .catch((err) => {
         console.log(err);
@@ -22,7 +24,7 @@ function IndexRec() {
         recepies.map((item) => (
           <Recepie
             title={item.title}
-            description={item.description}
+            summary={item.summary}
             image={item.image}
             price={item.price}
           />

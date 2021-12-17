@@ -1,12 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import route from "./../../Routes";
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 
 export default function Header() {
   return (
-    <div className="p4 m-4 h6">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="">
+      <nav className="navbar navbar-expand-lg navbar-dark p-2 bg-dark">
         <Link class="navbar-brand" to="/home">
           ProShop
         </Link>
@@ -34,11 +44,11 @@ export default function Header() {
                 About us
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link" to="">
-                Advance Search
+            <li className="nav-item dropdown">
+              <Link className="nav-link dropdown-toggle" to="">
+                Dropdwon
               </Link>
-            </li> */}
+            </li>
             <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle"
@@ -58,19 +68,25 @@ export default function Header() {
                 <Link className="dropdown-item" to="/sign-out">
                   YYYY
                 </Link>
-                <div className="dropdown-divider"></div>
                 <Link className="dropdown-item" to="#">
                   Something else here
                 </Link>
               </div>
             </li>
-            <li className="nav-item">
-              <Link className="dropdown-item" to="/login">
+
+            <li className="d-flex flex-row-reverse ">
+              <Link
+                className="nav-link text-white border-primary rounded-pill p-2 me-2 btn-outline-primary"
+                to="/login"
+              >
                 Login
               </Link>
             </li>
-            <li className="nav-item ">
-              <Link className="dropdown-item " to="/sign-up">
+            <li className="d-flex flex-row-reverse ">
+              <Link
+                className="nav-link text-white border-primary rounded-pill p-2 me-2 btn-outline-primary"
+                to="/sign-up"
+              >
                 Sign Up
               </Link>
             </li>
