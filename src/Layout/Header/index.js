@@ -1,98 +1,78 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import route from "./../../Routes";
-import {
-  Navbar,
-  Container,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { route } from "./../../Routes";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 
 export default function Header() {
   return (
-    <div className="">
-      <nav className="navbar navbar-expand-lg navbar-dark p-2 bg-dark">
-        <Link class="navbar-brand" to="/home">
-          ProShop
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+    <Navbar bg="light" expand="lg">
+      <Container fluid>
+        <Navbar.Brand to={route.root}>FoodyMoody</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: "100px" }}
+            navbarScroll
+          >
+            <ul className="navbar-nav mr-auto">
+              <li>
+                <Link className="nav-link" to={route.home}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link className="nav-link" to={route.aboutUs}>
+                  About us
+                </Link>
+              </li>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <Link className="nav-link" to="/home">
-                Home <span className="sr-only">(current)</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about-us">
-                About us
-              </Link>
-            </li>
-            <li className="nav-item dropdown">
-              <Link className="nav-link dropdown-toggle" to="">
-                Dropdwon
-              </Link>
-            </li>
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle"
-                to="advance-search"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Advance Search
-              </Link>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item" to="/login">
-                  XXX
-                </Link>
-                <Link className="dropdown-item" to="/sign-out">
-                  YYYY
-                </Link>
-                <Link className="dropdown-item" to="#">
-                  Something else here
-                </Link>
-              </div>
-            </li>
+              <NavDropdown title="Search Options" id="navbarScrollingDropdown">
+                <NavDropdown.Item>
+                  <Link className="dropdown-item " to={route.advanceSearch}>
+                    Advance Search
+                  </Link>
+                </NavDropdown.Item>
 
-            <li className="d-flex flex-row-reverse ">
-              <Link
-                className="nav-link text-white border-primary rounded-pill p-2 me-2 btn-outline-primary"
-                to="/login"
-              >
-                Login
-              </Link>
-            </li>
-            <li className="d-flex flex-row-reverse ">
-              <Link
-                className="nav-link text-white border-primary rounded-pill p-2 me-2 btn-outline-primary"
-                to="/sign-up"
-              >
-                Sign Up
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+                <NavDropdown.Item>
+                  <Link className="dropdown-item" to="/search-ingredients">
+                    Search By Ingredients
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item>
+                  <Link className="dropdown-item" to="/search-calories">
+                    Search by Calories
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+
+              <Nav.Link to="#" disabled>
+                Link
+              </Nav.Link>
+
+              <li>
+                <Link
+                  className="nav-link btn border rounded-pill outline-success me-2"
+                  to={route.login}
+                >
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="nav-link btn border rounded-pill outline-success"
+                  to={route.signUp}
+                >
+                  Sign up
+                </Link>
+              </li>
+            </ul>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }

@@ -1,10 +1,12 @@
 import React from "react";
-import Recepies from "../../Components/ShowRecepies";
+import SearchRecipes from "../../Components/SearchRecipes";
+import Recipes from "../../Components/ShowRecipes";
 
 export default function Home() {
   return (
     <div className="row">
-      <Recepies />
+      <SearchRecipes />
+      <Recipes />
     </div>
   );
 }

@@ -6,7 +6,7 @@ function IndexRec() {
 
   useEffect(() => {
     fetch(
-      "https://api.spoonacular.com/recipes/random?number=8&tags=vegetarian,dessert&apiKey=9f113b083e584777b7d9d00820ef41a4"
+      "https://api.spoonacular.com/recipes/random?number=2&tags=vegetarian,dessert&apiKey=9f113b083e584777b7d9d00820ef41a4"
     )
       .then((res) => res.json())
       .then((data) => {
