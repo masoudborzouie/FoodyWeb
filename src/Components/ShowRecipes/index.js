@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
-import Recepie from "./Recepie";
+import Recipe from "./Recipe";
 
 function IndexRec() {
-  const [recepies, setRecepies] = useState([]);
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     fetch(
-      "https://api.spoonacular.com/recipes/random?number=2&tags=vegetarian,dessert&apiKey=9f113b083e584777b7d9d00820ef41a4"
+      "https://api.spoonacular.com/recipes/random?number=3&tags=vegetarian&apiKey=63b751c222884517b53e6e46f8ba9021"
     )
       .then((res) => res.json())
       .then((data) => {
-        setRecepies(data.recipes);
-        console.log(data.recipes);
+        setRecipes(data.recipes);
+        // console.log(data.recipes);
       })
       .catch((err) => {
         console.log(err);
@@ -20,9 +20,9 @@ function IndexRec() {
 
   return (
     <div className="row mt-5 ">
-      {recepies.length ? (
-        recepies.map((item) => (
-          <Recepie
+      {recipes.length ? (
+        recipes.map((item) => (
+          <Recipe
             title={item.title}
             summary={item.summary}
             image={item.image}
@@ -30,7 +30,7 @@ function IndexRec() {
           />
         ))
       ) : (
-        <h1>No Recepies</h1>
+        <h1>No Recipes</h1>
       )}
     </div>
   );

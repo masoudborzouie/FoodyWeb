@@ -1,7 +1,25 @@
-import React from "react";
+import { useState } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
 
 function SearchRecipes() {
+  const [queryApi, setQueryApi] = useState({
+    recipe: "",
+    number: 0,
+  });
+
+  const formHandler = (e) => {
+    e.preventDefault();
+    fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?query=${queryApi.recipe}&number=${queryApi.number}&apiKey=63b751c222884517b53e6e46f8ba9021`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <Form className=" w-50 m-auto mt-3 shadow p-3 mb-5 bg-body rounded">
       <div className="m-auto">
@@ -11,11 +29,14 @@ function SearchRecipes() {
           placeholder="Search a Recipe"
           className=""
           aria-label="Search"
+          onChange={(e) => setQueryApi({ ...queryApi, recipe: e.target.value })}
         />
       </div>
       <div className="d-flex justify-content-center m-2">
-        <label className="me-2">Number of Recipes</label>{" "}
-        <select>
+        <label className="me-2">Number of Recipes</label>
+        <select
+          onChange={(e) => setQueryApi({ ...queryApi, number: e.target.value })}
+        >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -23,8 +44,8 @@ function SearchRecipes() {
           <option value="5">5</option>
         </select>
       </div>
-      <div>
-        <Button className="w-100 mt-2" variant="outline-success">
+      <div className="d-flex justify-content-center mt-2">
+        <Button variant="outline-success" onSubmit={formHandler}>
           Search
         </Button>
       </div>

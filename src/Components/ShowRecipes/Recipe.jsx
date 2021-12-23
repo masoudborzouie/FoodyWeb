@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
-export default function Recepie({ title, summary, image, price }) {
+export default function Recipe({ title, summary, image, price }) {
   return (
     <div className="container ms-2 d-flex col p-3 justify-content-center">
       <Card style={{ width: "20rem" }}>
@@ -19,7 +19,7 @@ export default function Recepie({ title, summary, image, price }) {
           <Card.Text> {`${summary.substring(0, 50)}...`}</Card.Text>
           <Card.Text>{price}</Card.Text>
           <Button variant="primary" className=" m-2">
-            Get Reciepes
+            Get Recipes
           </Button>
         </Card.Body>
       </Card>
