@@ -7,3 +7,4 @@ export default function Main() {
     </div>
   );
 }
+console.log("Hello");

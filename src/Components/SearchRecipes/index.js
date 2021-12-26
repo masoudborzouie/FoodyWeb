@@ -1,20 +1,23 @@
 import { useState } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
 
-function SearchRecipes() {
+function SearchRecipes({ resultApi }) {
   const [queryApi, setQueryApi] = useState({
     recipe: "",
     number: 0,
   });
-
+  // const [resultApi, setResultApi] = useState([]);
   const formHandler = (e) => {
     e.preventDefault();
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${queryApi.recipe}&number=${queryApi.number}&apiKey=63b751c222884517b53e6e46f8ba9021`
+      "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2&apiKey=63b751c222884517b53e6e46f8ba9021"
     )
-      .then((res) => res.json())
+      .then((res) => {
+        return res.json();
+      })
       .then((data) => {
         console.log(data);
+        resultApi(data.results);
       })
       .catch((error) => {
         console.log(error);

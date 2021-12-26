@@ -16,7 +16,7 @@ export default function Recipe({ title, summary, image, price }) {
             0,
             35
           )}...`}</Card.Title>
-          <Card.Text> {`${summary.substring(0, 50)}...`}</Card.Text>
+          {/* <Card.Text> {`${summary.substring(0, 50)}...`}</Card.Text> */}
           <Card.Text>{price}</Card.Text>
           <Button variant="primary" className=" m-2">
             Get Recipes
