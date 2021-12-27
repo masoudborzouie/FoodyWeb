@@ -12,12 +12,11 @@ function SearchRecipes({ resultApi }) {
     fetch(
       "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2&apiKey=63b751c222884517b53e6e46f8ba9021"
     )
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        resultApi(data.results);
+        console.log("Yuhuu");
+        // resultApi(resData.results);
       })
       .catch((error) => {
         console.log(error);
