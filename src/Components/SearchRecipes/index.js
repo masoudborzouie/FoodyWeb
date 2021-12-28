@@ -10,11 +10,13 @@ function SearchRecipes({ resultApi }) {
   const formHandler = (e) => {
     e.preventDefault();
     fetch(
-      "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2&apiKey=63b751c222884517b53e6e46f8ba9021"
+      `https://api.spoonacular.com/recipes/complexSearch?query=${queryApi.recepie}&number=${queryApi.number}&apiKey=63b751c222884517b53e6e46f8ba9021`
     )
-      .then((res) => res.json())
+      .then((response) => {
+        return response.json();
+      })
       .then((data) => {
-        console.log(data);
+        console.log(data.results);
         console.log("Yuhuu");
         // resultApi(resData.results);
       })
@@ -23,7 +25,10 @@ function SearchRecipes({ resultApi }) {
       });
   };
   return (
-    <Form className=" w-50 m-auto mt-3 shadow p-3 mb-5 bg-body rounded">
+    <Form
+      className=" w-50 m-auto mt-3 shadow p-3 mb-5 bg-body rounded"
+      onSubmit={formHandler}
+    >
       <div className="m-auto">
         <h3 className="mb-3 d-flex justify-content-center">Serach Recipes</h3>
         <FormControl
@@ -47,9 +52,7 @@ function SearchRecipes({ resultApi }) {
         </select>
       </div>
       <div className="d-flex justify-content-center mt-2">
-        <Button variant="outline-success" onSubmit={formHandler}>
-          Search
-        </Button>
+        <Button variant="outline-success">Search</Button>
       </div>
     </Form>
   );
