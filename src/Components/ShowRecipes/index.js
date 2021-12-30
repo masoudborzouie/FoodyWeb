@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import Recipe from "./Recipe";
 
 function IndexRec({ recipes }) {

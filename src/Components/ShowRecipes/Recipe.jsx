@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
-export default function Recipe({ title, summary, image, price }) {
+export default function Recipe({ title, image, price }) {
   return (
     <div className="container ms-2 d-flex col p-3 justify-content-center">
       <Card style={{ width: "20rem" }}>

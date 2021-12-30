@@ -10,15 +10,15 @@ function SearchRecipes({ resultApi }) {
   const formHandler = (e) => {
     e.preventDefault();
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${queryApi.recepie}&number=${queryApi.number}&apiKey=63b751c222884517b53e6e46f8ba9021`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${queryApi.recipe}&number=${queryApi.number}&apiKey=63b751c222884517b53e6e46f8ba9021`
     )
-      .then((response) => {
-        return response.json();
+      .then((res) => {
+        return res.json();
       })
-      .then((data) => {
-        console.log(data.results);
-        console.log("Yuhuu");
-        // resultApi(resData.results);
+      .then((resData) => {
+        const data = resData.results;
+        resultApi({ data, queryApi }); //props
+        console.log({ data, queryApi });
       })
       .catch((error) => {
         console.log(error);
@@ -40,7 +40,9 @@ function SearchRecipes({ resultApi }) {
         />
       </div>
       <div className="d-flex justify-content-center m-2">
-        <label className="me-2">Number of Recipes</label>
+        <label className="me-2" name="">
+          Number of Recipes
+        </label>
         <select
           onChange={(e) => setQueryApi({ ...queryApi, number: e.target.value })}
         >
@@ -52,7 +54,9 @@ function SearchRecipes({ resultApi }) {
         </select>
       </div>
       <div className="d-flex justify-content-center mt-2">
-        <Button variant="outline-success">Search</Button>
+        <Button variant="outline-success" type="submit">
+          Search
+        </Button>
       </div>
     </Form>
   );
