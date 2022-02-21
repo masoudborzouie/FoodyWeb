@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import SearchRecipes from "../../Components/SearchRecipes";
-import Recipes from "../../Components/ShowRecipes";
+import ShowRec from "../../Components/ShowRecipes";
 
-export default function Home() {
+function Home() {
   const queryApi = {
     ingredient: ["", "", ""],
     number: 2,
-    title: "Newest Recepies: ",
+    title: "Newest Recipes: ",
   };
-
-  const [recipes, setRecipes] = useState({
+  const [result, setResult] = useState({
     data: [],
     queryApi: queryApi,
   });
@@ -18,17 +17,20 @@ export default function Home() {
       `https://api.spoonacular.com/recipes/random?number=${queryApi.number}&tags=vegetarian&apiKey=63b751c222884517b53e6e46f8ba9021`
     )
       .then((res) => res.json())
-      .then((data) => {
-        setRecipes(data.recipes);
+      .then((resData) => {
+        const data = resData.recipes;
+        setResult({ data, queryApi });
+        console.log({ data, queryApi });
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [queryApi.number]);
+  }, []);
   return (
     <div className="row">
-      <SearchRecipes resultApi={(resultApi) => setRecipes(resultApi)} />
-      <Recipes recipes={recipes} />
+      <SearchRecipes resultApi={(resultApi) => setResult(resultApi)} />
+      <ShowRec result={result} />
     </div>
   );
 }
+export default Home;
