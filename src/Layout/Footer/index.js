@@ -10,7 +10,12 @@ export default function Footer() {
         public URL. Learn how to confwith theinsiden-root public URL. Learn how
         to confwith theinsiden-root public URL. Learn how to confwith
         theinsiden-root public URL. Learn how to confwith theinsiden-root public
-        URL. Learn how to conf
+        URL. Learn how to confgit
+      </p>
+      <p>
+        nsiden-root public URL. Learn how to confwith theinsiden-root public
+        URL. Learn how to confwith theinsiden-root public URL. Learn how to
+        confwith theinside
       </p>
     </div>
   );
