@@ -11,11 +11,7 @@ export default function About() {
         replaced withIt will be replaced withIt will be replaced withIt will be
         replaced withgit add the URLn build`
       </p>
-      <p>
-        se of %PUBLIC_URL% in the tags above. It will be replaced withIt will be
-        replaced withIt will be replaced withIt will be replaced withIt will be
-        replaced withIt will be replaced withIt will be replaced{" "}
-      </p>
+      
       <p>
         dggNotice the use of %PUBLIC_URL% in the tags above. It will be replaced
         withIt will be replaced withIt will be replaced withIt will be replaced{" "}
