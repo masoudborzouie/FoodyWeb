@@ -6,4 +6,6 @@ export default function AdvanceSearch() {
 <p>
   dggNotice the use of %PUBLIC_URL% in the tags above. It will be replaced
   withIt will be replaced withIt will be replaced withIt will be replaced
+  dggNotice the use of %PUBLIC_URL% in the tags above. It will be replaced
+  withIt will be replaced withIt will be replaced withIt will be replaced
 </p>;

@@ -8,9 +8,7 @@ export default function Footer() {
       <p>
         with theinsiden-root public URL. Learn how to confwith theinsiden-root
         public URL. Learn how to confwith theinsiden-root public URL. Learn how
-        to confwith theinsiden-root public URL. Learn how to confwith
-        theinsiden-root public URL. Learn how to confwith theinsiden-root public
-        URL. Learn how to confgit iden-root public URL. Learn how to confwith
+        to confwinfgit iden-root public URL. Learn how to confwith
         theinsiden-root public URL. Learn how to confwith theinsiden-root public
         URL. Learn how to confwith theinside
       </p>
